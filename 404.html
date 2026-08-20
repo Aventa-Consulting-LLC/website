@@ -3,20 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page not found — Aventa Consulting</title>
+<meta name="color-scheme" content="light dark">
+<title>Page not found | Aventa Consulting</title>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<script>
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('aventa-theme'); } catch (e) {}
+    var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (dark ? 'dark' : 'light'));
+  })();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F7F4EE;color:#26343D;font-family:"Inter",sans-serif;text-align:center;padding:24px}
-  h1{font-family:"Montserrat",Arial,sans-serif;font-weight:600;font-size:2.2rem;color:#173F58;margin:0 0 12px}
-  p{color:#5E6E77;margin:0 0 28px}
-  a{display:inline-block;background:#173F58;color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;text-decoration:none}
+  :root{
+    --bg:#F7F4EE; --text:#26343D; --muted:#5E6E77;
+    --heading:#173F58; --accent:#173F58; --on-accent:#FFFFFF;
+    --logo:url("/assets/logo-lockup.png");
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1F2B; --text:#DCE5EA; --muted:#9BABB5;
+    --heading:#EAF1F5; --accent:#7FB2D4; --on-accent:#0D1F2B;
+    --logo:url("/assets/logo-lockup-light.png");
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1F2B; --text:#DCE5EA; --muted:#9BABB5;
+      --heading:#EAF1F5; --accent:#7FB2D4; --on-accent:#0D1F2B;
+      --logo:url("/assets/logo-lockup-light.png");
+    }
+  }
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--text);font-family:"Inter",sans-serif;text-align:center;padding:24px}
+  .logo-img{width:200px;max-width:70vw;aspect-ratio:600/624;margin:0 auto 32px;background:var(--logo) center/contain no-repeat}
+  h1{font-family:"Montserrat",Arial,sans-serif;font-weight:600;font-size:2.2rem;color:var(--heading);margin:0 0 12px}
+  p{color:var(--muted);margin:0 0 28px}
+  a{display:inline-block;background:var(--accent);color:var(--on-accent);padding:11px 22px;border-radius:8px;font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
 <div>
-  <img src="/assets/logo-lockup.png" alt="Aventa Consulting" style="width:200px;max-width:70vw;height:auto;margin:0 0 32px">
+  <div class="logo-img" role="img" aria-label="Aventa Consulting"></div>
   <h1>That page doesn't exist.</h1>
   <p>Let's get you back somewhere useful.</p>
   <a href="/">Back to aventaconsulting.com</a>

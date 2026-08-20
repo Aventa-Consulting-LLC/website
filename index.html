@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aventa Consulting — Salesforce Consulting for Growing Teams</title>
-<meta name="description" content="Aventa Consulting helps growing businesses implement, optimize, and get real value from Salesforce — senior attention, clear scope, no big-firm overhead.">
+<meta name="color-scheme" content="light dark">
+<title>Aventa Consulting | Salesforce Consulting for Growing Teams</title>
+<meta name="description" content="Aventa Consulting helps growing businesses set up Salesforce, clean it up, and finally get real value out of it. Senior attention, clear scope, no big-firm overhead.">
 <meta property="og:title" content="Aventa Consulting">
-<meta property="og:description" content="Salesforce consulting for growing teams — implementation, optimization, automation, and fractional admin support.">
+<meta property="og:description" content="Salesforce consulting for growing teams: implementation, optimization, automation, and fractional admin support.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aventaconsulting.com">
 <meta property="og:image" content="https://aventaconsulting.com/assets/og-image.png">
@@ -16,94 +17,176 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script>
+  /* Resolve the theme before first paint so there is no flash of the wrong palette. */
+  (function(){
+    var saved = null;
+    try { saved = localStorage.getItem('aventa-theme'); } catch (e) {}
+    var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (dark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <style>
+  /* Brand palette: Aventa Consulting Brand Guidelines v1.0, section 04.
+     Navy #173F58, Sage #8A9B78, Ink #26343D, Mist #F3F5F4, Warm White #F7F4EE.
+     Roles below map those colors onto the page so the dark theme can restate
+     the same roles without touching any component rule. */
   :root{
-    /* Brand palette — Aventa Consulting Brand Guidelines v1.0, section 04 */
-    --navy:#173F58;      /* Aventa Navy — primary identity, headings, dark fields */
-    --sage:#8A9B78;      /* Aventa Sage — accent, secondary graphics */
-    --ink:#26343D;       /* Ink — body text and utility copy */
-    --mist:#F3F5F4;      /* Mist — panels, dividers, quiet backgrounds */
-    --warm:#F7F4EE;      /* Warm White — optional editorial background */
-    /* derived working tones */
-    --paper:#FFFFFF;
-    --navy-deep:#0F2C40;
+    --bg:#FFFFFF;
+    --surface:#FFFFFF;
+    --band:#F3F5F4;
+    --text:#26343D;
     --muted:#5E6E77;
+    --heading:#173F58;
+    --accent:#173F58;
+    --accent-hover:#0F2C40;
+    --on-accent:#FFFFFF;
+    --sage:#8A9B78;
+    --on-sage:#173F58;
     --line:#E4E9EA;
-    --on-navy:#C7D3DA;
+    --header-bg:rgba(255,255,255,.9);
+    --footer-bg:#173F58;
+    --footer-text:#C7D3DA;
+    --headshot-a:#FFFFFF;
+    --headshot-b:#E4EAEC;
+    --logo:url("/assets/logo-horizontal.png");
+    --logo-compact:url("/assets/logo-mark.png");
     --max:1080px;
     --display:"Montserrat",-apple-system,"Segoe UI",Arial,sans-serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
+  :root[data-theme="dark"]{
+    --bg:#0D1F2B;
+    --surface:#142836;
+    --band:#101F2A;
+    --text:#DCE5EA;
+    --muted:#9BABB5;
+    --heading:#EAF1F5;
+    --accent:#7FB2D4;
+    --accent-hover:#A3C9E2;
+    --on-accent:#0D1F2B;
+    --sage:#A9BA96;
+    --on-sage:#0D1F2B;
+    --line:#24384A;
+    --header-bg:rgba(13,31,43,.9);
+    --footer-bg:#091822;
+    --footer-text:#B7C6CF;
+    --headshot-a:#142836;
+    --headshot-b:#1B3448;
+    --logo:url("/assets/logo-horizontal-light.png");
+    --logo-compact:url("/assets/logo-mark-light.png");
+  }
+  /* Same dark values for anyone whose browser prefers dark before the script runs. */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1F2B;
+      --surface:#142836;
+      --band:#101F2A;
+      --text:#DCE5EA;
+      --muted:#9BABB5;
+      --heading:#EAF1F5;
+      --accent:#7FB2D4;
+      --accent-hover:#A3C9E2;
+      --on-accent:#0D1F2B;
+      --sage:#A9BA96;
+      --on-sage:#0D1F2B;
+      --line:#24384A;
+      --header-bg:rgba(13,31,43,.9);
+      --footer-bg:#091822;
+      --footer-text:#B7C6CF;
+      --headshot-a:#142836;
+      --headshot-b:#1B3448;
+      --logo:url("/assets/logo-horizontal-light.png");
+      --logo-compact:url("/assets/logo-mark-light.png");
+    }
+  }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--navy)}
-  h3{font-family:var(--display);font-weight:500;line-height:1.3;color:var(--navy)}
-  a{color:var(--navy);text-decoration:none}
+  h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--heading)}
+  h3{font-family:var(--display);font-weight:500;line-height:1.3;color:var(--heading)}
+  a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
- 
+
   /* ---------- nav ---------- */
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+  header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:16px}
   @media(max-width:720px){.nav{height:68px}}
   .logo{display:flex;align-items:center;text-decoration:none}
   .logo:hover{text-decoration:none}
   /* 183px wide clears the 180px digital minimum for the full lockup */
-  .logo img{height:55px;width:auto;flex:none;display:block}
-  @media(max-width:720px){.logo img{height:40px}}
+  .logo-img{display:block;width:183px;height:55px;background:var(--logo) left center/contain no-repeat}
+  @media(max-width:720px){.logo-img{width:52px;height:40px;background-image:var(--logo-compact)}}
   .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
-  .nav-links a:not(.btn){color:var(--ink)}
-  .nav-links a:not(.btn):hover{color:var(--navy);text-decoration:none}
-  .btn{display:inline-block;background:var(--navy);color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
-  .btn:hover{background:var(--navy-deep);text-decoration:none}
+  .nav-links a:not(.btn){color:var(--text)}
+  .nav-links a:not(.btn):hover{color:var(--accent);text-decoration:none}
+  .btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
+  .btn:hover{background:var(--accent-hover);text-decoration:none}
   .nav .btn{padding:9px 18px;font-size:.88rem}
-  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
- 
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}.nav-links{gap:14px}}
+
+  /* theme toggle */
+  .theme-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--heading);cursor:pointer;transition:border-color .15s ease,color .15s ease}
+  .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+  .theme-toggle svg{width:18px;height:18px;display:block}
+  .theme-toggle .icon-sun{display:none}
+  :root[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+  :root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun{display:block}
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon{display:none}
+  }
+
   /* ---------- hero ---------- */
   .hero{padding-top:96px;padding-bottom:88px}
-  .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:20px}
+  .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--heading);margin-bottom:20px}
   .hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:15ch}
-  .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:52ch}
+  .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:54ch}
   .hero-cta{margin-top:36px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .quiet-link{font-weight:600;font-size:.95rem}
   .hero-cred{margin-top:28px;font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
- 
+
   /* ---------- sections ---------- */
   section{padding:84px 0}
-  .band{background:var(--mist)}
-  .sec-head{max-width:56ch;margin-bottom:48px}
+  .band{background:var(--band)}
+  .sec-head{max-width:58ch;margin-bottom:48px}
   .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
   .sec-head p{margin-top:14px;color:var(--muted)}
- 
+
   /* services */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px 26px}
   .card h3{font-size:1.18rem;margin-bottom:10px}
   .card p{font-size:.95rem;color:var(--muted)}
-  .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--sage);color:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
- 
+  .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--sage);color:var(--on-sage);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
+
   /* approach */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;counter-reset:step}
-  .step{padding:28px 26px;border-left:2px solid var(--navy);background:#fff;border-radius:0 12px 12px 0}
-  .step .n{font-family:var(--display);font-size:2rem;color:var(--navy);font-weight:600}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .step{padding:28px 26px;border-left:2px solid var(--accent);background:var(--surface);border-radius:0 12px 12px 0}
+  .step .n{font-family:var(--display);font-size:2rem;color:var(--heading);font-weight:600}
   .step h3{font-size:1.12rem;margin:8px 0 10px}
   .step p{font-size:.95rem;color:var(--muted)}
- 
+
   /* about */
   .about{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
   @media(max-width:760px){.about{grid-template-columns:1fr}}
-  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,#FFFFFF,#E4EAEC);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--headshot-a),var(--headshot-b));border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
   .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
-  .about p{margin-bottom:16px;color:var(--ink)}
-  .certs{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-  .cert{font-size:.8rem;font-weight:600;background:var(--mist);color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
-  .cert-soon{background:transparent;border-style:dashed;border-color:var(--sage);color:var(--muted)}
- 
+  .about p{margin-bottom:16px;color:var(--text)}
+
+  /* certifications */
+  .certs{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 16px;max-width:460px}
+  @media(max-width:420px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .cert{margin:0;text-align:center}
+  .cert img{width:78px;height:auto;display:block;margin:0 auto 9px}
+  .cert figcaption{font-size:.75rem;font-weight:500;color:var(--muted);line-height:1.35}
+  .cert-note{margin-top:22px;font-size:.82rem;color:var(--muted)}
+
   /* contact */
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
   @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
@@ -113,15 +196,15 @@
   form{display:grid;gap:16px}
   .field{display:grid;gap:6px}
   label{font-size:.85rem;font-weight:600}
-  input,textarea{font-family:var(--sans);font-size:.95rem;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
-  input:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:transparent}
+  input,textarea{font-family:var(--sans);font-size:.95rem;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);width:100%}
+  input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
   textarea{min-height:130px;resize:vertical}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){.row2{grid-template-columns:1fr}}
   .form-note{font-size:.8rem;color:var(--muted)}
- 
+
   /* footer */
-  footer{background:var(--navy);color:var(--on-navy);padding:48px 0;font-size:.85rem}
+  footer{background:var(--footer-bg);color:var(--footer-text);padding:48px 0;font-size:.85rem}
   .foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
   .foot-logo{width:260px;max-width:100%;height:auto;display:block}
   .foot-meta{display:flex;flex-direction:column;gap:4px;text-align:right}
@@ -129,137 +212,156 @@
 </style>
 </head>
 <body>
- 
+
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Aventa Consulting home">
-      <picture>
-        <source media="(min-width:721px)" srcset="/assets/logo-horizontal.png">
-        <img src="/assets/logo-mark.png" alt="" aria-hidden="true">
-      </picture>
+      <span class="logo-img" aria-hidden="true"></span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#approach">Approach</a>
       <a href="#about">About</a>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.2v2.4M12 19.4v2.4M4.1 4.1l1.7 1.7M18.2 18.2l1.7 1.7M2.2 12h2.4M19.4 12h2.4M4.1 19.9l1.7-1.7M18.2 5.8l1.7-1.7"/></svg>
+      </button>
       <a class="btn" href="#contact">Get in touch</a>
     </nav>
   </div>
 </header>
- 
+
 <main id="top">
- 
+
   <!-- HERO -->
   <div class="wrap hero">
     <span class="kicker">Salesforce Consulting</span>
     <h1>Salesforce, set up the way your business actually works.</h1>
-    <p class="lede">Aventa Consulting helps growing teams implement, clean up, and get real value from Salesforce — with senior-level attention, clear scope, and none of the big-firm overhead.</p>
+    <p class="lede">We help growing teams set up Salesforce, clean it up, and finally get real value out of it. You get senior-level attention and a clear scope, without the big-firm overhead.</p>
     <div class="hero-cta">
       <a class="btn" href="#contact">Start a conversation</a>
       <a class="quiet-link" href="#services">See what we do →</a>
     </div>
     <p class="hero-cred">6× Salesforce certified · architect-level expertise · founder-led engagements</p>
   </div>
- 
+
   <!-- SERVICES -->
   <section id="services" class="band">
     <div class="wrap">
       <div class="sec-head">
         <h2>What we do</h2>
-        <p>Whether you're standing up Salesforce for the first time or untangling an org that's grown messy, engagements are scoped clearly and delivered with documentation you can keep.</p>
+        <p>Maybe you're setting Salesforce up for the first time. Maybe your org has gotten messy over the years. Either way, you'll know exactly what's in scope, and you'll walk away with documentation you can actually use.</p>
       </div>
       <div class="grid">
         <div class="card">
           <div class="glyph">◆</div>
           <h3>Implementation &amp; Migration</h3>
-          <p>New org setup done right the first time — objects, data migration, integrations, and security modeled around how your team sells and serves.</p>
+          <p>New org setup, done right the first time. Objects, data migration, integrations, and security all modeled around how your team really sells and serves.</p>
         </div>
         <div class="card">
           <div class="glyph">◈</div>
           <h3>Org Health &amp; Optimization</h3>
-          <p>Audits and cleanup for orgs carrying years of quick fixes — retiring legacy automation, consolidating fields, and modernizing to Flow.</p>
+          <p>If your org is carrying years of quick fixes, we'll audit it and clean it up. That means retiring legacy automation, consolidating fields, and getting you onto Flow.</p>
         </div>
         <div class="card">
           <div class="glyph">▲</div>
           <h3>Automation &amp; Custom Builds</h3>
-          <p>Flows, custom objects, and the reports and dashboards your leadership actually wants — built to be maintained, not just delivered.</p>
+          <p>Flows, custom objects, and the reports and dashboards your leadership actually asks for. All of it built to be maintained, not just handed over.</p>
         </div>
         <div class="card">
           <div class="glyph">✦</div>
           <h3>Marketing Cloud Engagement</h3>
-          <p>Journeys, segmentation, and email programs in Marketing Cloud Engagement — connected to your CRM data so marketing and sales tell the same story.</p>
+          <p>Journeys, segmentation, and email programs in Marketing Cloud Engagement, connected to your CRM data so marketing and sales are telling the same story.</p>
         </div>
         <div class="card">
           <div class="glyph">◉</div>
           <h3>Security &amp; Sharing Architecture</h3>
-          <p>Architect-level design of roles, permission sets, and sharing rules — the right people see the right data, and nothing more. Audited and documented.</p>
+          <p>Architect-level design of roles, permission sets, and sharing rules, so the right people see the right data and nothing more. Audited and documented.</p>
         </div>
         <div class="card">
           <div class="glyph">●</div>
           <h3>Fractional Admin Support</h3>
-          <p>Ongoing admin expertise without a full-time hire — user management, release readiness, small enhancements, and training on a monthly cadence.</p>
+          <p>Ongoing admin help without hiring someone full time. User management, release readiness, small enhancements, and training on a monthly cadence.</p>
         </div>
       </div>
     </div>
   </section>
- 
+
   <!-- APPROACH -->
   <section id="approach">
     <div class="wrap">
       <div class="sec-head">
         <h2>How an engagement works</h2>
-        <p>No black boxes. You'll always know what's being built, why, and how to run it after we're done.</p>
+        <p>No black boxes. You'll always know what's being built, why it's being built, and how to run it once we're done.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="n">1</div>
           <h3>Discover</h3>
-          <p>We map how your team actually works — process, pain points, and what "better" looks like — before anything gets configured.</p>
+          <p>Before anything gets configured, we map how your team actually works: your process, your pain points, and what "better" would really look like.</p>
         </div>
         <div class="step">
           <div class="n">2</div>
           <h3>Design &amp; Build</h3>
-          <p>A clearly scoped build plan, delivered in increments you can react to. You see progress in your sandbox, not in a slide deck.</p>
+          <p>You get a clearly scoped build plan, delivered in pieces you can react to. Progress shows up in your sandbox, not in a slide deck.</p>
         </div>
         <div class="step">
           <div class="n">3</div>
           <h3>Enable</h3>
-          <p>Handoff with real documentation and training, so your team owns the org with confidence — and we're a call away when you grow.</p>
+          <p>Handoff comes with real documentation and training, so your team owns the org with confidence. And we're a call away when you grow.</p>
         </div>
       </div>
     </div>
   </section>
- 
+
   <!-- ABOUT -->
   <section id="about" class="band">
     <div class="wrap about">
       <div class="headshot">Krysten's headshot<br>(coming soon)</div>
       <div>
         <h2>Meet Krysten</h2>
-        <p>Aventa Consulting is led by Krysten, a six-times-certified Salesforce professional with more than 12 years of experience solving business and operational challenges.</p>
-        <p>Before specializing in Salesforce, Krysten built her career across sales, marketing, and operations, giving her firsthand experience with the processes and challenges technology is meant to support. Today, she pairs that perspective with deep, hands-on Salesforce expertise.</p>
-        <p>Her strength is connecting the two. She looks beyond what someone is asking to build to understand how the work actually happens, where the friction is, and what people are ultimately trying to accomplish. She brings that understanding into thoughtful solutions that work for the business, scale with it, and make life easier for the people using them.</p>
+        <p>Aventa Consulting is led by Krysten, a six-times-certified Salesforce professional with more than 12 years of experience solving business and operational problems.</p>
+        <p>Before she specialized in Salesforce, Krysten built her career across sales, marketing, and operations. She has worked on the other side of these processes, so she knows firsthand what technology is supposed to fix. Today she pairs that perspective with deep, hands-on Salesforce expertise.</p>
+        <p>Her strength is connecting the two. She looks past what someone is asking her to build and digs into how the work actually happens, where the friction is, and what people are really trying to get done. Then she turns that into solutions that fit the business, scale with it, and make life easier for the people using them.</p>
         <p>Aventa was built around that approach: understand the problem, build with intention, and leave things better than you found them.</p>
         <p>Based in Colorado, working with clients everywhere.</p>
         <div class="certs" aria-label="Salesforce certifications">
-          <span class="cert">Platform Administrator</span>
-          <span class="cert">Platform Administrator II</span>
-          <span class="cert">Platform App Builder</span>
-          <span class="cert">Marketing Cloud Engagement Specialist</span>
-          <span class="cert">Business Analyst</span>
-          <span class="cert">Platform Sharing &amp; Visibility Architect</span>
-          <span class="cert cert-soon">Platform Developer — in progress</span>
+          <figure class="cert">
+            <img src="/assets/cert-platform-administrator.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Platform Administrator</figcaption>
+          </figure>
+          <figure class="cert">
+            <img src="/assets/cert-platform-administrator-ii.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Platform Administrator II</figcaption>
+          </figure>
+          <figure class="cert">
+            <img src="/assets/cert-platform-app-builder.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Platform App Builder</figcaption>
+          </figure>
+          <figure class="cert">
+            <img src="/assets/cert-marketing-cloud-engagement-specialist.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Marketing Cloud Engagement Specialist</figcaption>
+          </figure>
+          <figure class="cert">
+            <img src="/assets/cert-business-analyst.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Business Analyst</figcaption>
+          </figure>
+          <figure class="cert">
+            <img src="/assets/cert-sharing-visibility-architect.png" alt="" width="240" height="235" loading="lazy">
+            <figcaption>Platform Sharing and Visibility Architect</figcaption>
+          </figure>
         </div>
+        <p class="cert-note">Platform Developer certification in progress.</p>
       </div>
     </div>
   </section>
- 
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap contact-grid">
       <div class="contact-info">
         <h2>Let's talk about your org.</h2>
-        <p>Tell us a little about your Salesforce situation — whether it's a fresh implementation, a cleanup, or just a question. We'll reply within one business day.</p>
+        <p>Tell us a bit about what's going on with your Salesforce. Whether it's a fresh implementation, a cleanup, or just a question you can't get answered, we'll get back to you within one business day.</p>
         <p class="contact-line"><a href="mailto:hello@aventaconsulting.com">hello@aventaconsulting.com</a></p>
       </div>
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -286,9 +388,9 @@
       </form>
     </div>
   </section>
- 
+
 </main>
- 
+
 <footer>
   <div class="wrap foot">
     <img class="foot-logo" src="/assets/logo-horizontal-light.png" alt="Aventa Consulting" width="900" height="271">
@@ -298,7 +400,24 @@
     </div>
   </div>
 </footer>
- 
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('themeToggle');
+    function sync(){
+      var dark = root.getAttribute('data-theme') === 'dark';
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    sync();
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('aventa-theme', next); } catch (e) {}
+      sync();
+    });
+  })();
+</script>
+
 </body>
 </html>
-
