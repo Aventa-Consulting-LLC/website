@@ -44,7 +44,7 @@ Edit `index.html`, commit, push to `main`. Live in ~1 minute.
 
 - [ ] Repo Settings → Pages → deploy from `main` branch, root folder
 - [ ] Repo Settings → Pages → Custom domain: `aventaconsulting.com` → Enforce HTTPS
-- [ ] Create a free Formspree form pointing at hello@aventaconsulting.com and replace `YOUR_FORM_ID` in `index.html`
+- [ ] Create a free Formspree form pointing at krysten@aventaconsulting.com and replace `YOUR_FORM_ID` in `index.html`
 - [ ] Replace the headshot placeholder in the About section
 - [ ] Update Krysten's certifications list in the About section
 
