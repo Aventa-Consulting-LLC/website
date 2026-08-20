@@ -43,8 +43,8 @@
   .logo:hover{text-decoration:none}
   .logo svg{width:30px;height:30px;flex:none}
   .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
-  .nav-links a{color:var(--ink)}
-  .nav-links a:hover{color:var(--brand);text-decoration:none}
+  .nav-links a:not(.btn){color:var(--ink)}
+  .nav-links a:not(.btn):hover{color:var(--brand);text-decoration:none}
   .btn{display:inline-block;background:var(--brand);color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
   .btn:hover{background:var(--brand-deep);text-decoration:none}
   .nav .btn{padding:9px 18px;font-size:.88rem}
