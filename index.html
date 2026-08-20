@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <title>Aventa Consulting | Salesforce Consulting for Growing Teams</title>
-<meta name="description" content="Aventa Consulting helps growing businesses set up Salesforce, clean it up, and finally get real value out of it. Senior attention, clear scope, no big-firm overhead.">
+<meta name="description" content="Aventa Consulting helps organizations implement, improve, and get more from Salesforce with senior-level expertise, practical solutions, and support that meets you where you are.">
 <meta property="og:title" content="Aventa Consulting">
-<meta property="og:description" content="Salesforce consulting for growing teams: implementation, optimization, automation, and fractional admin support.">
+<meta property="og:description" content="Salesforce consulting with senior-level expertise, practical solutions, and support that meets you where you are.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aventaconsulting.com">
 <meta property="og:image" content="https://aventaconsulting.com/assets/og-image.png">
@@ -116,19 +116,20 @@
   /* ---------- nav ---------- */
   header{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:16px}
-  @media(max-width:720px){.nav{height:68px}}
+  @media(max-width:820px){.nav{height:68px}}
   .logo{display:flex;align-items:center;text-decoration:none}
   .logo:hover{text-decoration:none}
   /* 183px wide clears the 180px digital minimum for the full lockup */
   .logo-img{display:block;width:183px;height:55px;background:var(--logo) left center/contain no-repeat}
-  @media(max-width:720px){.logo-img{width:52px;height:40px;background-image:var(--logo-compact)}}
-  .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
+  @media(max-width:820px){.logo-img{width:52px;height:40px;background-image:var(--logo-compact)}}
+  .nav-links{display:flex;align-items:center;gap:24px;font-size:.92rem;font-weight:500}
   .nav-links a:not(.btn){color:var(--text)}
   .nav-links a:not(.btn):hover{color:var(--accent);text-decoration:none}
   .btn{display:inline-block;background:var(--accent);color:var(--on-accent);padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
   .btn:hover{background:var(--accent-hover);text-decoration:none}
   .nav .btn{padding:9px 18px;font-size:.88rem}
-  @media(max-width:720px){.nav-links a:not(.btn){display:none}.nav-links{gap:14px}}
+  @media(max-width:940px){.nav-links{gap:18px}}
+  @media(max-width:820px){.nav-links a:not(.btn){display:none}.nav-links{gap:14px}}
 
   /* theme toggle */
   .theme-toggle{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--heading);cursor:pointer;transition:border-color .15s ease,color .15s ease}
@@ -145,8 +146,8 @@
   /* ---------- hero ---------- */
   .hero{padding-top:96px;padding-bottom:88px}
   .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--heading);margin-bottom:20px}
-  .hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:15ch}
-  .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:54ch}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:16ch}
+  .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:56ch}
   .hero-cta{margin-top:36px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
   .quiet-link{font-weight:600;font-size:.95rem}
   .hero-cred{margin-top:28px;font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
@@ -154,16 +155,25 @@
   /* ---------- sections ---------- */
   section{padding:84px 0}
   .band{background:var(--band)}
-  .sec-head{max-width:58ch;margin-bottom:48px}
+  .sec-head{max-width:60ch;margin-bottom:48px}
   .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
   .sec-head p{margin-top:14px;color:var(--muted)}
+  .sec-head p.sec-lead{margin-top:14px;font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--heading)}
 
   /* services */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px 26px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px 26px;display:flex;flex-direction:column}
   .card h3{font-size:1.18rem;margin-bottom:10px}
   .card p{font-size:.95rem;color:var(--muted)}
   .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--sage);color:var(--on-sage);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
+  .card .common{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:.84rem;line-height:1.55}
+  .card .common b{display:block;font-weight:600;color:var(--heading);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:6px}
+
+  /* platform experience */
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{font-size:.86rem;font-weight:500;background:var(--band);color:var(--heading);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
+  :root[data-theme="dark"] .pill{background:var(--surface)}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill{background:var(--surface)}}
 
   /* approach */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
@@ -171,6 +181,7 @@
   .step .n{font-family:var(--display);font-size:2rem;color:var(--heading);font-weight:600}
   .step h3{font-size:1.12rem;margin:8px 0 10px}
   .step p{font-size:.95rem;color:var(--muted)}
+  .steps-note{margin-top:28px;font-size:.92rem;color:var(--muted);max-width:72ch}
 
   /* about */
   .about{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
@@ -180,12 +191,9 @@
   .about p{margin-bottom:16px;color:var(--text)}
 
   /* certifications */
-  .certs{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 16px;max-width:460px}
-  @media(max-width:420px){.certs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  .cert{margin:0;text-align:center}
-  .cert img{width:78px;height:auto;display:block;margin:0 auto 9px}
-  .cert figcaption{font-size:.75rem;font-weight:500;color:var(--muted);line-height:1.35}
-  .cert-note{margin-top:22px;font-size:.82rem;color:var(--muted)}
+  .certs-head{margin-top:34px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--heading)}
+  .certs{margin-top:18px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+  .certs img{width:92px;height:auto;display:block}
 
   /* contact */
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
@@ -220,6 +228,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
       <a href="#approach">Approach</a>
       <a href="#about">About</a>
       <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark theme">
@@ -236,132 +245,142 @@
   <!-- HERO -->
   <div class="wrap hero">
     <span class="kicker">Salesforce Consulting</span>
-    <h1>Salesforce, set up the way your business actually works.</h1>
-    <p class="lede">I help growing teams set up Salesforce, clean it up, and finally get real value out of it. You get senior-level attention and a clear scope, without the big-firm overhead.</p>
+    <h1>Salesforce, built around how your business actually works.</h1>
+    <p class="lede">Aventa Consulting helps organizations implement, improve, and get more from Salesforce with senior-level expertise, practical solutions, and support that meets you where you are.</p>
     <div class="hero-cta">
       <a class="btn" href="#contact">Start a conversation</a>
-      <a class="quiet-link" href="#services">See what I do →</a>
+      <a class="quiet-link" href="#services">Explore services →</a>
     </div>
-    <p class="hero-cred">6× Salesforce certified · architect-level expertise · founder-led engagements</p>
+    <p class="hero-cred">6× Salesforce certified · Architect-level expertise · Founder-led engagements</p>
   </div>
 
   <!-- SERVICES -->
   <section id="services" class="band">
     <div class="wrap">
       <div class="sec-head">
-        <h2>What I do</h2>
-        <p>Maybe you're setting Salesforce up for the first time. Maybe your org has gotten messy over the years. Either way, you'll know exactly what's in scope, and you'll walk away with documentation you can actually use.</p>
+        <h2>Salesforce Services</h2>
+        <p>Whether you're starting fresh or untangling years of Salesforce complexity, expect clarity around the problem, intention behind the solution, and the right level of support to keep things moving.</p>
       </div>
       <div class="grid">
         <div class="card">
           <div class="glyph">◆</div>
           <h3>Implementation &amp; Migration</h3>
-          <p>New org setup, done right the first time. Objects, data migration, integrations, and security all modeled around how your team really sells and serves.</p>
+          <p>Thoughtful Salesforce implementations and migrations built around your business, your data, and how you actually work.</p>
+          <p class="common"><b>Common engagements</b>New implementations · Org migrations · Data migration · Integration planning</p>
         </div>
         <div class="card">
           <div class="glyph">◈</div>
           <h3>Org Health &amp; Optimization</h3>
-          <p>If your org is carrying years of quick fixes, I'll audit it and clean it up. That means retiring legacy automation, consolidating fields, and getting you onto Flow.</p>
+          <p>Practical assessments and hands-on improvements that reduce complexity, strengthen platform health, and make Salesforce easier to manage and evolve.</p>
+          <p class="common"><b>Common engagements</b>Org assessments · Technical debt cleanup · Automation modernization · Data and architecture improvements</p>
         </div>
         <div class="card">
           <div class="glyph">▲</div>
-          <h3>Automation &amp; Custom Builds</h3>
-          <p>Flows, custom objects, and the reports and dashboards your leadership actually asks for. All of it built to be maintained, not just handed over.</p>
+          <h3>Automation &amp; Custom Solutions</h3>
+          <p>Purpose-built automation and platform solutions that solve real business problems, simplify the way work gets done, and hold up over time.</p>
+          <p class="common"><b>Common engagements</b>Process automation · Custom solutions · Reporting and analytics · Integrations</p>
         </div>
         <div class="card">
           <div class="glyph">✦</div>
-          <h3>Marketing Cloud Engagement</h3>
-          <p>Journeys, segmentation, and email programs in Marketing Cloud Engagement, connected to your CRM data so marketing and sales are telling the same story.</p>
+          <h3>CRM &amp; Marketing Automation</h3>
+          <p>Connected CRM and marketing solutions that make better use of your data, strengthen segmentation and automation, and create a more connected experience across your systems.</p>
+          <p class="common"><b>Common engagements</b>Marketing automation · Segmentation · Campaign processes · CRM and marketing integrations</p>
         </div>
         <div class="card">
           <div class="glyph">◉</div>
-          <h3>Security &amp; Sharing Architecture</h3>
-          <p>Architect-level design of roles, permission sets, and sharing rules, so the right people see the right data and nothing more. Audited and documented.</p>
+          <h3>Security &amp; Access Architecture</h3>
+          <p>Thoughtful access models that balance usability with control across permissions, sharing, roles, external users, and the broader platform.</p>
+          <p class="common"><b>Common engagements</b>Permission architecture · Sharing models · Experience Cloud access · Security assessments</p>
         </div>
         <div class="card">
           <div class="glyph">●</div>
-          <h3>Fractional Admin Support</h3>
-          <p>Ongoing admin help without hiring someone full time. User management, release readiness, small enhancements, and training on a monthly cadence.</p>
+          <h3>Fractional Platform Support</h3>
+          <p>Flexible Salesforce expertise when you need more capacity, specialized guidance, or ongoing support without adding a full-time role.</p>
+          <p class="common"><b>Common engagements</b>Platform administration · Enhancements · Release support · Strategic guidance</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Platform Experience</h2>
+        <p>Deep Salesforce experience across clouds and capabilities, with solutions shaped around what the business needs rather than the boundaries between products.</p>
+      </div>
+      <div class="pills">
+        <span class="pill">Sales Cloud</span>
+        <span class="pill">Experience Cloud</span>
+        <span class="pill">Marketing Cloud Engagement</span>
+        <span class="pill">Account Engagement</span>
+        <span class="pill">Flow &amp; Automation</span>
+        <span class="pill">Data &amp; Integrations</span>
+        <span class="pill">Reporting &amp; Analytics</span>
+        <span class="pill">Security &amp; Sharing</span>
       </div>
     </div>
   </section>
 
   <!-- APPROACH -->
-  <section id="approach">
+  <section id="approach" class="band">
     <div class="wrap">
       <div class="sec-head">
-        <h2>How an engagement works</h2>
-        <p>No black boxes. You'll always know what's being built, why it's being built, and how to run it once I'm done.</p>
+        <h2>The Aventa Approach</h2>
+        <p class="sec-lead">No black boxes.</p>
+        <p>Every engagement is built around the level of support that makes sense, from hands-on execution to collaborative guidance and enablement. The goal is simple: clear decisions, visible progress, and solutions you can confidently move forward with.</p>
       </div>
       <div class="steps">
         <div class="step">
           <div class="n">1</div>
           <h3>Discover</h3>
-          <p>Before anything gets configured, I map how your team actually works: your process, your pain points, and what "better" would really look like.</p>
+          <p>Start with the problem, not the build. Understand how things work today, where the friction is, and what you're really trying to accomplish.</p>
         </div>
         <div class="step">
           <div class="n">2</div>
           <h3>Design &amp; Build</h3>
-          <p>You get a clearly scoped build plan, delivered in pieces you can react to. Progress shows up in your sandbox, not in a slide deck.</p>
+          <p>Turn that understanding into the right solution, then build iteratively with opportunities to see progress, provide input, and adjust along the way.</p>
         </div>
         <div class="step">
           <div class="n">3</div>
           <h3>Enable</h3>
-          <p>Handoff comes with real documentation and training, so your team owns the org with confidence. And I'm a call away when you grow.</p>
+          <p>Gain clarity, confidence, and the right level of support for what comes next, whether that's continued collaboration, enablement, or a clean handoff.</p>
         </div>
       </div>
+      <p class="steps-note">Support can take different forms depending on the engagement, including ongoing platform support, training, knowledge transfer, or documentation where it adds value.</p>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="band">
+  <section id="about">
     <div class="wrap about">
       <div class="headshot">Headshot<br>(coming soon)</div>
       <div>
-        <h2>Hi, I'm Krysten.</h2>
-        <p>I run Aventa Consulting. I'm a six-times-certified Salesforce professional with more than 12 years of experience solving business and operational problems.</p>
-        <p>Before I specialized in Salesforce, I built my career across sales, marketing, and operations. I've worked on the other side of these processes, so I know firsthand what technology is supposed to fix. Today I pair that perspective with deep, hands-on Salesforce expertise.</p>
-        <p>Connecting those two things is where I do my best work. I look past what someone is asking me to build and dig into how the work actually happens, where the friction is, and what people are really trying to get done. Then I turn that into solutions that fit the business, scale with it, and make life easier for the people using them.</p>
-        <p>I built Aventa around that approach: understand the problem, build with intention, and leave things better than you found them.</p>
-        <p>I'm based in Colorado and work with clients everywhere.</p>
-        <div class="certs" aria-label="Salesforce certifications">
-          <figure class="cert">
-            <img src="/assets/cert-platform-administrator.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Platform Administrator</figcaption>
-          </figure>
-          <figure class="cert">
-            <img src="/assets/cert-platform-administrator-ii.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Platform Administrator II</figcaption>
-          </figure>
-          <figure class="cert">
-            <img src="/assets/cert-platform-app-builder.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Platform App Builder</figcaption>
-          </figure>
-          <figure class="cert">
-            <img src="/assets/cert-marketing-cloud-engagement-specialist.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Marketing Cloud Engagement Specialist</figcaption>
-          </figure>
-          <figure class="cert">
-            <img src="/assets/cert-business-analyst.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Business Analyst</figcaption>
-          </figure>
-          <figure class="cert">
-            <img src="/assets/cert-sharing-visibility-architect.png" alt="" width="240" height="235" loading="lazy">
-            <figcaption>Platform Sharing and Visibility Architect</figcaption>
-          </figure>
+        <h2>Meet Krysten</h2>
+        <p>Aventa Consulting is led by Krysten, a six-times-certified Salesforce professional with more than 12 years of experience solving business and operational challenges.</p>
+        <p>Before specializing in Salesforce, Krysten built her career across sales, marketing, and operations. That experience brings firsthand perspective on the processes, priorities, and day-to-day realities technology is meant to support. Today, she pairs that business perspective with deep, hands-on Salesforce expertise.</p>
+        <p>Her strength is connecting the two. She looks beyond what someone is asking to build to understand how the work actually happens, where the friction is, and what people are ultimately trying to accomplish. She turns that understanding into thoughtful, practical solutions that work for the business, strengthen the platform, and make life easier for the people using it.</p>
+        <p>Aventa was built around that approach: understand the problem, build with intention, and leave things better than you found them.</p>
+        <p>Based in Colorado, working with clients everywhere.</p>
+        <h3 class="certs-head">Salesforce Certifications</h3>
+        <div class="certs">
+          <img src="/assets/cert-platform-administrator.png" alt="Salesforce Certified Platform Administrator" title="Platform Administrator" width="240" height="235" loading="lazy">
+          <img src="/assets/cert-platform-administrator-ii.png" alt="Salesforce Certified Platform Administrator II" title="Platform Administrator II" width="240" height="235" loading="lazy">
+          <img src="/assets/cert-platform-app-builder.png" alt="Salesforce Certified Platform App Builder" title="Platform App Builder" width="240" height="235" loading="lazy">
+          <img src="/assets/cert-marketing-cloud-engagement-specialist.png" alt="Salesforce Certified Marketing Cloud Engagement Specialist" title="Marketing Cloud Engagement Specialist" width="240" height="235" loading="lazy">
+          <img src="/assets/cert-business-analyst.png" alt="Salesforce Certified Business Analyst" title="Business Analyst" width="240" height="235" loading="lazy">
+          <img src="/assets/cert-sharing-visibility-architect.png" alt="Salesforce Certified Platform Sharing and Visibility Architect" title="Platform Sharing and Visibility Architect" width="240" height="235" loading="lazy">
         </div>
-        <p class="cert-note">Platform Developer certification in progress.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="band">
     <div class="wrap contact-grid">
       <div class="contact-info">
-        <h2>Let's talk about your org.</h2>
-        <p>Tell me a bit about what's going on with your Salesforce. Whether it's a fresh implementation, a cleanup, or just a question you can't get answered, I'll get back to you within one business day.</p>
+        <h2>Have a Salesforce challenge?</h2>
+        <p>Whether you're starting something new, trying to make an existing org work better, or simply aren't sure of the right next step, start with a conversation.</p>
         <p class="contact-line"><a href="mailto:hello@aventaconsulting.com">hello@aventaconsulting.com</a></p>
       </div>
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -380,11 +399,11 @@
           <input id="company" name="company" type="text" autocomplete="organization">
         </div>
         <div class="field">
-          <label for="message">What can I help with?</label>
+          <label for="message">What are you looking for help with?</label>
           <textarea id="message" name="message" required></textarea>
         </div>
         <button class="btn" type="submit">Send message</button>
-        <p class="form-note">This goes straight to my inbox. No newsletters, no spam.</p>
+        <p class="form-note">Your message goes directly to Aventa Consulting. No newsletters. No spam.</p>
       </form>
     </div>
   </section>

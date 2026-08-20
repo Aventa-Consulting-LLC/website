@@ -22,8 +22,10 @@ Public website for **Aventa Consulting LLC**. Salesforce consulting for growing 
   so a palette change means editing only the two `:root` blocks. A small inline script
   in `<head>` sets `data-theme` before first paint, honoring a saved choice in
   `localStorage` and falling back to the visitor's system preference.
-- Copy style: conversational, plain sentences, and no em-dashes anywhere. Krysten
-  doesn't use them, so the site shouldn't either.
+- Copy comes from Krysten's `Website_Copy.docx`. Treat that document as the source of
+  truth for wording and re-sync from it rather than editing prose in place.
+- Copy style: plain sentences and no em-dashes anywhere. Krysten doesn't use them, so
+  the site shouldn't either.
 - Colors (guidelines section 04): Aventa Navy `#173F58`, Aventa Sage `#8A9B78` (accent only),
   Ink `#26343D`, Mist `#F3F5F4`, Warm White `#F7F4EE`. Working tones derived for hover
   (`#0F2C40`), secondary text (`#5E6E77`), and dividers (`#E4E9EA`).
