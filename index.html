@@ -18,19 +18,23 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,640&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FAF8F4;
-    --ink:#17222E;
-    --muted:#5C6874;
-    --brand:#223954;
-    --brand-deep:#16273B;
-    --sage:#879476;
-    --tint:#EDF1F5;
-    --line:#E1DED6;
+    /* Brand palette — Aventa Consulting Brand Guidelines v1.0, section 04 */
+    --navy:#173F58;      /* Aventa Navy — primary identity, headings, dark fields */
+    --sage:#8A9B78;      /* Aventa Sage — accent, secondary graphics */
+    --ink:#26343D;       /* Ink — body text and utility copy */
+    --mist:#F3F5F4;      /* Mist — panels, dividers, quiet backgrounds */
+    --warm:#F7F4EE;      /* Warm White — optional editorial background */
+    /* derived working tones */
+    --paper:#FFFFFF;
+    --navy-deep:#0F2C40;
+    --muted:#5E6E77;
+    --line:#E4E9EA;
+    --on-navy:#C7D3DA;
     --max:1080px;
-    --serif:"Fraunces",Georgia,serif;
+    --display:"Montserrat",-apple-system,"Segoe UI",Arial,sans-serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -38,29 +42,31 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--serif);font-weight:560;letter-spacing:-0.01em;line-height:1.15}
-  a{color:var(--brand);text-decoration:none}
+  h1,h2{font-family:var(--display);font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--navy)}
+  h3{font-family:var(--display);font-weight:500;line-height:1.3;color:var(--navy)}
+  a{color:var(--navy);text-decoration:none}
   a:hover{text-decoration:underline}
  
   /* ---------- nav ---------- */
-  header{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+  @media(max-width:720px){.nav{height:68px}}
+  .logo{display:flex;align-items:center;text-decoration:none}
   .logo:hover{text-decoration:none}
-  .logo img{height:34px;width:auto;flex:none;display:block}
-  .logo span{font-size:1.05rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;line-height:1}
-  @media(max-width:420px){.logo span{font-size:.95rem;letter-spacing:.18em}}
+  /* 183px wide clears the 180px digital minimum for the full lockup */
+  .logo img{height:55px;width:auto;flex:none;display:block}
+  @media(max-width:720px){.logo img{height:40px}}
   .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
   .nav-links a:not(.btn){color:var(--ink)}
-  .nav-links a:not(.btn):hover{color:var(--brand);text-decoration:none}
-  .btn{display:inline-block;background:var(--brand);color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
-  .btn:hover{background:var(--brand-deep);text-decoration:none}
+  .nav-links a:not(.btn):hover{color:var(--navy);text-decoration:none}
+  .btn{display:inline-block;background:var(--navy);color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
+  .btn:hover{background:var(--navy-deep);text-decoration:none}
   .nav .btn{padding:9px 18px;font-size:.88rem}
   @media(max-width:720px){.nav-links a:not(.btn){display:none}}
  
   /* ---------- hero ---------- */
-  .hero{padding:96px 0 88px}
-  .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:20px}
+  .hero{padding-top:96px;padding-bottom:88px}
+  .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:20px}
   .hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:15ch}
   .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:52ch}
   .hero-cta{margin-top:36px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
@@ -69,7 +75,7 @@
  
   /* ---------- sections ---------- */
   section{padding:84px 0}
-  .band{background:var(--tint)}
+  .band{background:var(--mist)}
   .sec-head{max-width:56ch;margin-bottom:48px}
   .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
   .sec-head p{margin-top:14px;color:var(--muted)}
@@ -79,24 +85,24 @@
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px}
   .card h3{font-size:1.18rem;margin-bottom:10px}
   .card p{font-size:.95rem;color:var(--muted)}
-  .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--tint);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
+  .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--sage);color:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
  
   /* approach */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;counter-reset:step}
-  .step{padding:28px 26px;border-left:2px solid var(--brand);background:#fff;border-radius:0 12px 12px 0}
-  .step .n{font-family:var(--serif);font-size:2rem;color:var(--brand);font-weight:560}
+  .step{padding:28px 26px;border-left:2px solid var(--navy);background:#fff;border-radius:0 12px 12px 0}
+  .step .n{font-family:var(--display);font-size:2rem;color:var(--navy);font-weight:600}
   .step h3{font-size:1.12rem;margin:8px 0 10px}
   .step p{font-size:.95rem;color:var(--muted)}
  
   /* about */
   .about{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
   @media(max-width:760px){.about{grid-template-columns:1fr}}
-  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--tint),#D9E2EC);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,#FFFFFF,#E4EAEC);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
   .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
-  .about p{margin-bottom:16px;color:#39434F}
+  .about p{margin-bottom:16px;color:var(--ink)}
   .certs{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-  .cert{font-size:.8rem;font-weight:600;background:var(--tint);color:var(--brand-deep);border:1px solid #D3DDE7;border-radius:999px;padding:6px 14px}
-  .cert-soon{background:transparent;border-style:dashed;color:var(--muted)}
+  .cert{font-size:.8rem;font-weight:600;background:var(--mist);color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+  .cert-soon{background:transparent;border-style:dashed;border-color:var(--sage);color:var(--muted)}
  
   /* contact */
   .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
@@ -108,16 +114,16 @@
   .field{display:grid;gap:6px}
   label{font-size:.85rem;font-weight:600}
   input,textarea{font-family:var(--sans);font-size:.95rem;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
-  input:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+  input:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:transparent}
   textarea{min-height:130px;resize:vertical}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){.row2{grid-template-columns:1fr}}
   .form-note{font-size:.8rem;color:var(--muted)}
  
   /* footer */
-  footer{border-top:1px solid var(--line);padding:40px 0;font-size:.85rem;color:var(--muted)}
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-  .foot-logo{height:88px;width:auto;display:block}
+  footer{background:var(--navy);color:var(--on-navy);padding:48px 0;font-size:.85rem}
+  .foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
+  .foot-logo{width:260px;max-width:100%;height:auto;display:block}
   .foot-meta{display:flex;flex-direction:column;gap:4px;text-align:right}
   @media(max-width:560px){.foot{flex-direction:column;align-items:flex-start}.foot-meta{text-align:left}}
 </style>
@@ -127,8 +133,10 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Aventa Consulting home">
-      <img src="/assets/logo-mark.png" alt="" aria-hidden="true">
-      <span>Aventa</span>
+      <picture>
+        <source media="(min-width:721px)" srcset="/assets/logo-horizontal.png">
+        <img src="/assets/logo-mark.png" alt="" aria-hidden="true">
+      </picture>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
@@ -283,7 +291,7 @@
  
 <footer>
   <div class="wrap foot">
-    <img class="foot-logo" src="/assets/logo-lockup.png" alt="Aventa Consulting" width="462" height="480">
+    <img class="foot-logo" src="/assets/logo-horizontal-light.png" alt="Aventa Consulting" width="900" height="271">
     <div class="foot-meta">
       <span>© 2026 Aventa Consulting LLC. All rights reserved.</span>
       <span>aventaconsulting.com</span>
