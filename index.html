@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventa Consulting — Salesforce Consulting for Growing Teams</title>
+<meta name="description" content="Aventa Consulting helps growing businesses implement, optimize, and get real value from Salesforce — senior attention, clear scope, no big-firm overhead.">
+<meta property="og:title" content="Aventa Consulting">
+<meta property="og:description" content="Salesforce consulting for growing teams — implementation, optimization, automation, and fractional admin support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aventaconsulting.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23256D5B'/%3E%3Cpath d='M32 13 L50 51 H41.5 L32 30.5 L22.5 51 H14 Z' fill='%23FAF8F4'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,640&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F4;
+    --ink:#1A2421;
+    --muted:#5B6660;
+    --brand:#256D5B;
+    --brand-deep:#1B5245;
+    --tint:#EDF3EE;
+    --line:#E3E0D8;
+    --max:1080px;
+    --serif:"Fraunces",Georgia,serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:560;letter-spacing:-0.01em;line-height:1.15}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.35rem;font-weight:640;color:var(--ink);text-decoration:none}
+  .logo:hover{text-decoration:none}
+  .logo svg{width:30px;height:30px;flex:none}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink)}
+  .nav-links a:hover{color:var(--brand);text-decoration:none}
+  .btn{display:inline-block;background:var(--brand);color:#fff;padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:background .15s ease}
+  .btn:hover{background:var(--brand-deep);text-decoration:none}
+  .nav .btn{padding:9px 18px;font-size:.88rem}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:96px 0 88px}
+  .kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);max-width:15ch}
+  .hero p.lede{margin-top:24px;font-size:1.18rem;color:var(--muted);max-width:52ch}
+  .hero-cta{margin-top:36px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .quiet-link{font-weight:600;font-size:.95rem}
+  .hero-cred{margin-top:28px;font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+
+  /* ---------- sections ---------- */
+  section{padding:84px 0}
+  .band{background:var(--tint)}
+  .sec-head{max-width:56ch;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+  .sec-head p{margin-top:14px;color:var(--muted)}
+
+  /* services */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px}
+  .card h3{font-size:1.18rem;margin-bottom:10px}
+  .card p{font-size:.95rem;color:var(--muted)}
+  .card .glyph{width:38px;height:38px;border-radius:9px;background:var(--tint);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.1rem}
+
+  /* approach */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;counter-reset:step}
+  .step{padding:28px 26px;border-left:2px solid var(--brand);background:#fff;border-radius:0 12px 12px 0}
+  .step .n{font-family:var(--serif);font-size:2rem;color:var(--brand);font-weight:560}
+  .step h3{font-size:1.12rem;margin:8px 0 10px}
+  .step p{font-size:.95rem;color:var(--muted)}
+
+  /* about */
+  .about{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+  @media(max-width:760px){.about{grid-template-columns:1fr}}
+  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--tint),#DCE8DF);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+  .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
+  .about p{margin-bottom:16px;color:#39433F}
+  .certs{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+  .cert{font-size:.8rem;font-weight:600;background:var(--tint);color:var(--brand-deep);border:1px solid #D6E3DA;border-radius:999px;padding:6px 14px}
+  .cert-soon{background:transparent;border-style:dashed;color:var(--muted)}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+  .contact-info h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:16px}
+  .contact-info p{color:var(--muted);margin-bottom:20px}
+  .contact-line{font-weight:600}
+  form{display:grid;gap:16px}
+  .field{display:grid;gap:6px}
+  label{font-size:.85rem;font-weight:600}
+  input,textarea{font-family:var(--sans);font-size:.95rem;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
+  input:focus,textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+  textarea{min-height:130px;resize:vertical}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}}
+  .form-note{font-size:.8rem;color:var(--muted)}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:36px 0;font-size:.85rem;color:var(--muted)}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Aventa Consulting home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#256D5B"/><path d="M32 13 L50 51 H41.5 L32 30.5 L22.5 51 H14 Z" fill="#FAF8F4"/></svg>
+      aventa
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <span class="kicker">Salesforce Consulting</span>
+    <h1>Salesforce, set up the way your business actually works.</h1>
+    <p class="lede">Aventa Consulting helps growing teams implement, clean up, and get real value from Salesforce — with senior-level attention, clear scope, and none of the big-firm overhead.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Start a conversation</a>
+      <a class="quiet-link" href="#services">See what we do →</a>
+    </div>
+    <p class="hero-cred">6× Salesforce certified · architect-level expertise · founder-led engagements</p>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What we do</h2>
+        <p>Whether you're standing up Salesforce for the first time or untangling an org that's grown messy, engagements are scoped clearly and delivered with documentation you can keep.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="glyph">◆</div>
+          <h3>Implementation &amp; Migration</h3>
+          <p>New org setup done right the first time — objects, data migration, integrations, and security modeled around how your team sells and serves.</p>
+        </div>
+        <div class="card">
+          <div class="glyph">◈</div>
+          <h3>Org Health &amp; Optimization</h3>
+          <p>Audits and cleanup for orgs carrying years of quick fixes — retiring legacy automation, consolidating fields, and modernizing to Flow.</p>
+        </div>
+        <div class="card">
+          <div class="glyph">▲</div>
+          <h3>Automation &amp; Custom Builds</h3>
+          <p>Flows, custom objects, and the reports and dashboards your leadership actually wants — built to be maintained, not just delivered.</p>
+        </div>
+        <div class="card">
+          <div class="glyph">✦</div>
+          <h3>Marketing Cloud Engagement</h3>
+          <p>Journeys, segmentation, and email programs in Marketing Cloud Engagement — connected to your CRM data so marketing and sales tell the same story.</p>
+        </div>
+        <div class="card">
+          <div class="glyph">◉</div>
+          <h3>Security &amp; Sharing Architecture</h3>
+          <p>Architect-level design of roles, permission sets, and sharing rules — the right people see the right data, and nothing more. Audited and documented.</p>
+        </div>
+        <div class="card">
+          <div class="glyph">●</div>
+          <h3>Fractional Admin Support</h3>
+          <p>Ongoing admin expertise without a full-time hire — user management, release readiness, small enhancements, and training on a monthly cadence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How an engagement works</h2>
+        <p>No black boxes. You'll always know what's being built, why, and how to run it after we're done.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Discover</h3>
+          <p>We map how your team actually works — process, pain points, and what "better" looks like — before anything gets configured.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Design &amp; Build</h3>
+          <p>A clearly scoped build plan, delivered in increments you can react to. You see progress in your sandbox, not in a slide deck.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Enable</h3>
+          <p>Handoff with real documentation and training, so your team owns the org with confidence — and we're a call away when you grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="band">
+    <div class="wrap about">
+      <div class="headshot">Krysten's headshot<br>(coming soon)</div>
+      <div>
+        <h2>Meet Krysten</h2>
+        <p>Aventa Consulting is led by Krysten, a six-times-certified Salesforce consultant who has spent her career helping organizations turn their CRM from a system people tolerate into one they rely on.</p>
+        <p>Her credentials run the full width of the platform — administration, app building, Marketing Cloud, business analysis, and architect-level sharing and visibility design — which means Aventa can scope the whole problem, not just the part one specialty sees. Platform Developer certifications are next on the list.</p>
+        <p>She founded Aventa on a simple observation: growing businesses don't need a bench of junior consultants billing hours — they need one experienced person who listens carefully, scopes honestly, and builds things that last.</p>
+        <p>Based in Colorado, working with clients everywhere.</p>
+        <div class="certs" aria-label="Salesforce certifications">
+          <span class="cert">Platform Administrator</span>
+          <span class="cert">Platform Administrator II</span>
+          <span class="cert">Platform App Builder</span>
+          <span class="cert">Marketing Cloud Engagement Specialist</span>
+          <span class="cert">Business Analyst</span>
+          <span class="cert">Platform Sharing &amp; Visibility Architect</span>
+          <span class="cert cert-soon">Platform Developer — in progress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2>Let's talk about your org.</h2>
+        <p>Tell us a little about your Salesforce situation — whether it's a fresh implementation, a cleanup, or just a question. We'll reply within one business day.</p>
+        <p class="contact-line"><a href="mailto:hello@aventaconsulting.com">hello@aventaconsulting.com</a></p>
+      </div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="row2">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="message">What can we help with?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note">This form goes straight to Krysten's inbox. No newsletters, no spam.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Aventa Consulting LLC. All rights reserved.</span>
+    <span>aventaconsulting.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
