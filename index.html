@@ -9,7 +9,12 @@
 <meta property="og:description" content="Salesforce consulting for growing teams — implementation, optimization, automation, and fractional admin support.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aventaconsulting.com">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23256D5B'/%3E%3Cpath d='M32 13 L50 51 H41.5 L32 30.5 L22.5 51 H14 Z' fill='%23FAF8F4'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://aventaconsulting.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aventaconsulting.com/assets/og-image.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +22,13 @@
 <style>
   :root{
     --paper:#FAF8F4;
-    --ink:#1A2421;
-    --muted:#5B6660;
-    --brand:#256D5B;
-    --brand-deep:#1B5245;
-    --tint:#EDF3EE;
-    --line:#E3E0D8;
+    --ink:#17222E;
+    --muted:#5C6874;
+    --brand:#223954;
+    --brand-deep:#16273B;
+    --sage:#879476;
+    --tint:#EDF1F5;
+    --line:#E1DED6;
     --max:1080px;
     --serif:"Fraunces",Georgia,serif;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -39,9 +45,11 @@
   /* ---------- nav ---------- */
   header{position:sticky;top:0;z-index:50;background:rgba(250,248,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.35rem;font-weight:640;color:var(--ink);text-decoration:none}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
   .logo:hover{text-decoration:none}
-  .logo svg{width:30px;height:30px;flex:none}
+  .logo img{height:34px;width:auto;flex:none;display:block}
+  .logo span{font-size:1.05rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;line-height:1}
+  @media(max-width:420px){.logo span{font-size:.95rem;letter-spacing:.18em}}
   .nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
   .nav-links a:not(.btn){color:var(--ink)}
   .nav-links a:not(.btn):hover{color:var(--brand);text-decoration:none}
@@ -83,11 +91,11 @@
   /* about */
   .about{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
   @media(max-width:760px){.about{grid-template-columns:1fr}}
-  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--tint),#DCE8DF);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+  .headshot{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--tint),#D9E2EC);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
   .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:18px}
-  .about p{margin-bottom:16px;color:#39433F}
+  .about p{margin-bottom:16px;color:#39434F}
   .certs{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-  .cert{font-size:.8rem;font-weight:600;background:var(--tint);color:var(--brand-deep);border:1px solid #D6E3DA;border-radius:999px;padding:6px 14px}
+  .cert{font-size:.8rem;font-weight:600;background:var(--tint);color:var(--brand-deep);border:1px solid #D3DDE7;border-radius:999px;padding:6px 14px}
   .cert-soon{background:transparent;border-style:dashed;color:var(--muted)}
  
   /* contact */
@@ -107,8 +115,11 @@
   .form-note{font-size:.8rem;color:var(--muted)}
  
   /* footer */
-  footer{border-top:1px solid var(--line);padding:36px 0;font-size:.85rem;color:var(--muted)}
-  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer{border-top:1px solid var(--line);padding:40px 0;font-size:.85rem;color:var(--muted)}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot-logo{height:88px;width:auto;display:block}
+  .foot-meta{display:flex;flex-direction:column;gap:4px;text-align:right}
+  @media(max-width:560px){.foot{flex-direction:column;align-items:flex-start}.foot-meta{text-align:left}}
 </style>
 </head>
 <body>
@@ -116,8 +127,8 @@
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Aventa Consulting home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#256D5B"/><path d="M32 13 L50 51 H41.5 L32 30.5 L22.5 51 H14 Z" fill="#FAF8F4"/></svg>
-      aventa
+      <img src="/assets/logo-mark.png" alt="" aria-hidden="true">
+      <span>Aventa</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
@@ -272,8 +283,11 @@
  
 <footer>
   <div class="wrap foot">
-    <span>© 2026 Aventa Consulting LLC. All rights reserved.</span>
-    <span>aventaconsulting.com</span>
+    <img class="foot-logo" src="/assets/logo-lockup.png" alt="Aventa Consulting" width="462" height="480">
+    <div class="foot-meta">
+      <span>© 2026 Aventa Consulting LLC. All rights reserved.</span>
+      <span>aventaconsulting.com</span>
+    </div>
   </div>
 </footer>
  
